@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+care-xyz/
+│
+├── app/
+│   ├── layout.js                 # Root layout (Navbar + Footer)
+│   ├── page.js                   # Home page
+│   ├── loading.js                # Global loading
+│   ├── not-found.js              # 404 page
+│
+│   ├── (auth)/
+│   │   ├── login/
+│   │   │   └── page.js
+│   │   ├── register/
+│   │   │   └── page.js
+│
+│   ├── services/
+│   │   ├── page.js               # All services overview
+│   │   └── [service_id]/
+│   │       └── page.js           # Service detail page
+│
+│   ├── booking/
+│   │   └── [service_id]/
+│   │       └── page.js           # Booking page (Private)
+│
+│   ├── my-bookings/
+│   │   └── page.js               # My bookings (Private)
+│
+│   ├── dashboard/                # (Optional Admin)
+│   │   ├── page.js
+│   │   ├── payments/
+│   │   │   └── page.js
+│   │   └── bookings/
+│   │       └── page.js
+│
+│   └── api/
+│       ├── auth/
+│       │   └── route.js
+│       ├── services/
+│       │   └── route.js
+│       ├── bookings/
+│       │   └── route.js
+│       ├── payment/
+│       │   └── route.js
+│       └── email/
+│           └── route.js
+│
+├── components/
+│   ├── shared/
+│   │   ├── Navbar.jsx
+│   │   ├── Footer.jsx
+│   │   └── Loader.jsx
+│   │
+│   ├── home/
+│   │   ├── Hero.jsx
+│   │   ├── About.jsx
+│   │   ├── Services.jsx
+│   │   └── Testimonials.jsx
+│   │
+│   ├── service/
+│   │   ├── ServiceCard.jsx
+│   │   └── ServiceDetails.jsx
+│   │
+│   ├── booking/
+│   │   ├── DurationSelector.jsx
+│   │   ├── LocationForm.jsx
+│   │   └── CostSummary.jsx
+│   │
+│   └── booking-list/
+│       └── BookingCard.jsx
+│
+├── hooks/
+│   ├── useAuth.js
+│   ├── usePrivateRoute.js
+│   └── useAxiosSecure.js
+│
+├── lib/
+│   ├── firebase.js
+│   ├── mongodb.js
+│   ├── stripe.js
+│   └── mailer.js
+│
+├── models/
+│   ├── User.js
+│   ├── Service.js
+│   ├── Booking.js
+│   └── Payment.js
+│
+├── utils/
+│   ├── costCalculator.js
+│   ├── locationData.js
+│   └── validators.js
+│
+├── middleware.js                # Route protection
+│
+├── public/
+│   ├── images/
+│   └── icons/
+│
+├── styles/
+│   └── globals.css
+│
+├── .env.local
+├── next.config.js
+├── package.json
+└── README.md
